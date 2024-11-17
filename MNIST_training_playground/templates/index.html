@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MNIST Training Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Pane -->
+        <div class="control-panel">
+            <h2>Model Configuration</h2>
+            
+            <!-- Model 1 Configuration -->
+            <div class="model-config">
+                <h3>Model 1</h3>
+                <div class="input-group">
+                    <label>Conv2D Channels:</label>
+                    <div class="channel-inputs">
+                        <input type="number" id="m1-ch1" min="1" max="128" value="16" placeholder="Layer 1">
+                        <input type="number" id="m1-ch2" min="1" max="128" value="32" placeholder="Layer 2">
+                        <input type="number" id="m1-ch3" min="1" max="128" value="64" placeholder="Layer 3">
+                        <input type="number" id="m1-ch4" min="1" max="128" value="64" placeholder="Layer 4">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Optimizer:</label>
+                    <select id="m1-optimizer">
+                        <option value="adam">Adam</option>
+                        <option value="sgd">SGD</option>
+                        <option value="rmsprop">RMSprop</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Batch Size:</label>
+                    <input type="number" id="m1-batch-size" min="16" max="128" value="64" step="16">
+                </div>
+                <div class="input-group">
+                    <label>Epochs:</label>
+                    <input type="number" id="m1-epochs" min="1" max="10" value="5">
+                </div>
+            </div>
+
+            <!-- Model 2 Configuration -->
+            <div class="model-config">
+                <h3>Model 2</h3>
+                <div class="input-group">
+                    <label>Conv2D Channels:</label>
+                    <div class="channel-inputs">
+                        <input type="number" id="m2-ch1" min="1" max="128" value="32" placeholder="Layer 1">
+                        <input type="number" id="m2-ch2" min="1" max="128" value="64" placeholder="Layer 2">
+                        <input type="number" id="m2-ch3" min="1" max="128" value="64" placeholder="Layer 3">
+                        <input type="number" id="m2-ch4" min="1" max="128" value="64" placeholder="Layer 4">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Optimizer:</label>
+                    <select id="m2-optimizer">
+                        <option value="adam">Adam</option>
+                        <option value="sgd">SGD</option>
+                        <option value="rmsprop">RMSprop</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Batch Size:</label>
+                    <input type="number" id="m2-batch-size" min="16" max="128" value="64" step="16">
+                </div>
+                <div class="input-group">
+                    <label>Epochs:</label>
+                    <input type="number" id="m2-epochs" min="1" max="10" value="5">
+                </div>
+            </div>
+
+            <button id="train-button" class="train-button">Train Models</button>
+        </div>
+
+        <!-- Right Pane (Charts) -->
+        <div class="visualization">
+            <h1>MNIST CNN Training Monitor</h1>
+            <div class="charts">
+                <div id="lossChart"></div>
+                <div id="accuracyChart"></div>
+            </div>
+            <div class="training-logs">
+                <div class="log-container">
+                    <h3>Model 1 Training Log</h3>
+                    <div id="model1-log" class="log-window"></div>
+                </div>
+                <div class="log-container">
+                    <h3>Model 2 Training Log</h3>
+                    <div id="model2-log" class="log-window"></div>
+                </div>
+            </div>
+            <div class="drawing-section">
+                <h3>Test Your Own Digits</h3>
+                <div class="drawing-container">
+                    <canvas id="drawingBoard" width="280" height="280"></canvas>
+                    <div class="drawing-controls">
+                        <button id="clearButton" class="control-button">Clear</button>
+                        <button id="predictButton" class="control-button">Predict</button>
+                    </div>
+                    <div class="prediction-results">
+                        <div class="model-prediction">
+                            <h4>Model 1 Prediction</h4>
+                            <div id="prediction1" class="prediction-value">-</div>
+                            <div id="confidence1" class="confidence-value">Confidence: -</div>
+                        </div>
+                        <div class="model-prediction">
+                            <h4>Model 2 Prediction</h4>
+                            <div id="prediction2" class="prediction-value">-</div>
+                            <div id="confidence2" class="confidence-value">Confidence: -</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="testExamples" class="test-examples"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

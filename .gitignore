@@ -56,3 +56,17 @@ sdist/
 develop-eggs/
 .installed.cfg
 *.egg-info/
+MNIST_training_playground/static/test_images/** 
+MNIST_training_playground/venv/
+MNIST_training_playground/data/
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+MNIST_training_playground/static/metrics.json
+MNIST_training_playground/static/test_examples.json
+MNIST_training_playground/static/test_images/*.png
+MNIST_training_playground/static/test_examples_model1.json
+MNIST_training_playground/static/test_examples_model2.json
+MNIST_training_playground/static/test_examples.json
+MNIST_training_playground/static/models/** 

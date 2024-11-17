@@ -1,0 +1,309 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.charts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+#lossChart, #accuracyChart {
+    width: 100%;
+    height: 400px;
+}
+
+.test-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.test-example {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.test-example canvas {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.prediction-info {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.label {
+    color: #666;
+    font-weight: bold;
+}
+
+.prediction {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.prediction.correct {
+    background-color: #e6ffe6;
+    color: #008000;
+}
+
+.prediction.incorrect {
+    background-color: #ffe6e6;
+    color: #cc0000;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.digit-image {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    image-rendering: pixelated;  /* Makes scaled-up image look crisp */
+}
+
+.main-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.control-panel {
+    width: 300px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-right: 1px solid #ddd;
+}
+
+.visualization {
+    flex: 1;
+    padding: 20px;
+}
+
+.model-config {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.channel-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.channel-inputs input,
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.train-button {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.train-button:hover {
+    background: #45a049;
+}
+
+.train-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+} 
+
+.model-results {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.model-column {
+    flex: 1;
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.model-column h3 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Make test examples smaller to fit side by side */
+.test-example {
+    max-width: 250px;
+    margin: 0 auto 20px;
+}
+
+/* Add loading indicator for training button */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.train-button:disabled {
+    animation: pulse 1.5s infinite;
+}
+
+/* Validation styling for inputs */
+.input-group input:invalid,
+.input-group select:invalid {
+    border-color: #ff4444;
+}
+
+.input-group input:focus:invalid,
+.input-group select:focus:invalid {
+    outline-color: #ff4444;
+}
+
+.training-logs {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.log-container {
+    flex: 1;
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.log-window {
+    background: #1e1e1e;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-size: 12px;
+}
+
+.log-line {
+    margin: 2px 0;
+    line-height: 1.4;
+}
+
+.log-progress {
+    color: #4CAF50;
+}
+
+.log-metric {
+    color: #64B5F6;
+}
+
+/* Add these styles */
+.drawing-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.drawing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#drawingBoard {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: crosshair;
+}
+
+.drawing-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.control-button:hover {
+    background: #45a049;
+}
+
+.prediction-results {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+}
+
+.model-prediction {
+    text-align: center;
+}
+
+.prediction-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.confidence-value {
+    color: #666;
+    font-size: 14px;
+} 
